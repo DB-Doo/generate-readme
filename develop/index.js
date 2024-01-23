@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+// Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// TODO: Create an array of questions for user input
+//  Create an array of questions for user input
 const questions = [
   {
     type: "input",
@@ -18,27 +18,27 @@ const questions = [
   {
     type: 'input',
     name: 'installation',
-    message: 'How can the app be installed? Please provide step-by-step installation instructions:',
+    message: 'How can the app be installed? Provide step-by-step installation instructions:',
   },
   {
     type: 'input',
     name: 'usage',
-    message: 'How is the app used? Please provide instructions and examples for use:',
+    message: 'How is the app used? Provide instructions and examples for use:',
   },
   {
     type: 'input',
     name: 'contributing',
-    message: 'How can other developers contribute to your project? Please provide guidelines for contributions:',
+    message: 'How can other developers contribute to your project? Provide guidelines for contributions:',
   },
   {
     type: 'input',
     name: 'tests',
-    message: 'How can the app be tested? Please provide any testing instructions:',
+    message: 'How can the app be tested? Provide any testing instructions:',
   },
   {
     type: 'input',
     name: 'reportIssues',
-    message: 'How should users report issues? Please provide instructions or guidelines for issue reporting:',
+    message: 'How should users report issues? Provide instructions or guidelines for issue reporting:',
   },
   {
     type: 'list',
@@ -59,6 +59,7 @@ const questions = [
 ];
 
 //  Create a function to write README file
+// write the README file. It takes a filename and data as parameters. if you ever wanted another new file you could use writeToFile('OTHER_NEW_DOCUMENT.md', data) without having to write a new function
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) =>
     err ? console.log(err) : console.log("Successfully created README.md!")
@@ -66,10 +67,14 @@ function writeToFile(fileName, data) {
 }
 
 // Create a function to initialize app
+// Uses Inquirer to prompt the user with questions and then use the responses to generate the README content
 function init() {
+  // Use inquirer to prompt the user with questions
   inquirer
     .prompt(questions)
+    // Once all questions are answered, use the answers to generate markdown
     .then((answers) => writeToFile("README.md", generateMarkdown(answers)))
+    // If an error occurs during the inquirer process log the error
     .catch((error) => console.error(error));
 }
 
