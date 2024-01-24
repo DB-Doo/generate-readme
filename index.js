@@ -1,6 +1,10 @@
 // Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+
+// import core and license related functions from 'generateMarkdown.js' to structure the README.md and handle license sections
+// this is using javascripts desctructuring assignment feature to extract multiple exports from one module
+
 const { generateMarkdown, renderLicenseBadge, renderLicenseLink, renderLicenseSection } = require('./utils/generateMarkdown');
 
 //  Create an array of questions for user input
