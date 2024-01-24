@@ -14,6 +14,9 @@ The README Generator is a command-line application that simplifies the process o
 ## Installation
 Clone the repository to your local machine using git clone https://github.com/DB-Doo/generate-readme.git. Navigate to the project directory, and run npm install to install the necessary dependencies. 
 
+## Link to video on how to use
+[![Video Title](./screenshot/screenshot.png)](https://youtu.be/EFAbq-rxVNg "Video Title")
+
 ## Usage
 To use the README Generator, navigate to the project directory in your terminal and run the command node index.js. Answer the prompts with the details of your project. A README.md file will be generated in the same directory, containing the provided information formatted in a professional layout.
 
